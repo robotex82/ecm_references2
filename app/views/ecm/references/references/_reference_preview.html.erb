@@ -1,0 +1,13 @@
+<div class="media reference-preview row" id="reference-<%= reference.to_param %>">
+    <%= link_to reference, :class => 'pull-left' do%>
+      <div class="thumbnail span2">
+        <%= image_tag(reference.preview_picture_image_url(:medium_thumb)) unless reference.preview_picture_image_url(:medium_thumb).nil? %>
+      </div>
+    <% end %>
+  <div class="media-body">
+    <h4 class="media-heading"><%= reference.name %></h4>
+    <p><%= truncate(mu(reference, :description), :length => Ecm::References::Configuration.reference_preview_length, :separator => ' ').html_safe %></p>
+    <%= link_to t('ecm.references.actions.more'), reference %>
+  </div>
+</div>
+

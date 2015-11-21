@@ -1,0 +1,8 @@
+<%= nested_li(children, {}) do |reference_category, level| %>
+  <% if reference_category.reference_count > 0 %>
+    <%= link_to reference_category, reference_category %>
+  <% else %>
+    <%= reference_category %>
+  <% end %>
+<% end %>
+

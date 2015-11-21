@@ -1,0 +1,49 @@
+de:
+  activerecord:
+    attributes:
+      ecm/references/category:
+        children: Unterkategorien
+        created_at: "Erstellt am"
+        depth: Baumtiefe
+        description: Beschreibung
+        details: Details
+        locale: Sprache
+        markup_language: "Markup Sprache"
+        name: Name
+        parent: "Übergeordnete Kategorie"
+        reference_count: Referenzen
+        references: Referenzen
+        slug: "Freundliche ID"
+        updated_at: "Aktualisiert am"
+      ecm/references/reference:
+        category: Kategorie
+        created_at: "Erstellt am"
+        description: Beschreibung
+        details: Details
+        markup_language: "Markup Sprache"
+        name: Name
+        preview_picture: Vorschaubild
+        published: Veröffentlicht
+        slug: "Freundliche ID"
+        updated_at: "Aktualisiert am"
+    models:
+      ecm/references/category:
+        one: Referenzkategorie
+        other: Referenzkategorien
+      ecm/references/reference:
+        one: Referenz
+        other: Referenzen
+  ecm:
+    references:
+      actions:
+        back_to_category: "Zurück zu %{category}"
+        back_to_category_index: "Alle Referenzkategorien"
+        more: mehr
+        next_reference: "Nächste Referenz"
+        previous_reference: "Vorherige Referenz"
+      active_admin:
+        menu: Referenzen
+  resources:
+    ecm_references_categories: referenz-kategorien
+    ecm_references_references: referenzen
+

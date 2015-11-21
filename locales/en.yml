@@ -1,0 +1,46 @@
+en: 
+  activerecord: 
+    attributes: 
+      ecm/references/category: 
+        children: subcategories
+        created_at: "created at"
+        depth: Depth
+        description: Description
+        details: details
+        locale: language
+        markup_language: "markup language"
+        name: name
+        parent: "parent category"
+        reference_count: references
+        references: references
+        slug: "friendly id"
+        updated_at: "updated at"
+      ecm/references/reference: 
+        category: category
+        created_at: "created at"
+        description: description
+        details: details
+        markup_language: "markup language"
+        name: name
+        preview_picture: preview picture
+        published: published
+        slug: "friendly id"
+        updated_at: "updated at"
+    models: 
+      ecm/references/category: 
+        one: "reference category"
+        other: "reference categories"
+      ecm/references/reference: 
+        one: reference
+        other: references
+  ecm: 
+    references: 
+      actions: 
+        back_to_category: "back to %{category}"
+        back_to_category_index: "back to all categories"
+        more: more
+      active_admin: 
+        menu: references
+  resources: 
+    ecm_references_categories: reference-categories
+    ecm_references_references: references
