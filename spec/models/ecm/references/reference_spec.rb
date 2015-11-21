@@ -102,7 +102,7 @@ module Ecm::References
     describe 'validations' do
       it { should validate_presence_of(:ecm_categories_category_id) }
       it { should validate_presence_of(:markup_language) }
-      it { should ensure_inclusion_of(:markup_language).in_array(Ecm::References::Configuration.markup_languages.map(&:to_s)) }
+      it { should validate_inclusion_of(:markup_language).in_array(Ecm::References::Configuration.markup_languages.map(&:to_s)) }
       it { should validate_presence_of(:name) }
       it { should validate_uniqueness_of(:name).scoped_to(:ecm_categories_category_id) }
     end # describe 'validations'

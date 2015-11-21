@@ -1,6 +1,14 @@
 ActiveAdmin.register Ecm::References::Reference do
   menu :parent => Proc.new { I18n.t('ecm.references.active_admin.menu') }.call
 
+  permit_params :attached_pictures_attributes,
+                :category,
+                :ecm_categories_category_id,
+                :description,
+                :markup_language,
+                :name,
+                :pictures_attributes
+
   # List settings
   sortable_member_actions
 
@@ -40,7 +48,7 @@ ActiveAdmin.register Ecm::References::Reference do
     column :published
     column :created_at
     column :updated_at
-    default_actions
+    actions
   end # index
 
   show :title => :to_s do

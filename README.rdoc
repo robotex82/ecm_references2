@@ -17,3 +17,8 @@ Add the migrations:
 
     rake ecm_references_engine:install:migrations
     rake db:migrate
+
+Add the routes:
+
+    # config/routes.rb
+    Ecm::References::Routing.routes(self)

@@ -5,6 +5,7 @@ feature 'admin area' do
 
   describe 'home page access' do
     background do
+      I18n.locale = :de
       visit '/de/admin'
     end # background
 
@@ -29,7 +30,7 @@ feature 'admin area' do
       end # background
 
       it 'should redirect to the login page' do
-        page.current_path.should eq('/de/admin/login')
+        page.current_path.should match('/de/admin/login')
       end
     end
   end # describe 'home page access'
@@ -43,7 +44,7 @@ feature 'admin area' do
     end # background
 
     it 'should redirect to the home page' do
-      page.current_path.should eq('/de')
+      page.current_path.should eq('/de/admin/login')
     end
   end # describe 'logout'
 end # feature

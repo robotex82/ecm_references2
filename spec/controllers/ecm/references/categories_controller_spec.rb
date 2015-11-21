@@ -10,7 +10,7 @@ module Ecm::References
       end # before
 
       it "assigns all visible reference categories to @reference_categories" do
-        get :index, :i18n_locale => :en
+        get :index, :locale => :en
         assigns(:reference_categories).should eq(@visible_reference_categories)
       end # if
     end # describe "GET index"
@@ -22,7 +22,7 @@ module Ecm::References
       end # before
 
       it "assigns the correct reference category to @reference_category" do
-        get :show, :id => @reference_category, :i18n_locale => :en
+        get :show, :id => @reference_category, :locale => :en
         assigns(:reference_category).should eq(@reference_category)
       end # if
     end # describe "GET show"

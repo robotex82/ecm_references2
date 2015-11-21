@@ -23,7 +23,7 @@ module Ecm::References
 
     # friendly id support
     extend FriendlyId
-    friendly_id :name, :use => :slugged
+    friendly_id :name, :use => [:slugged, :finders]
 
     # markup support
     acts_as_markup :language => :variable, :columns => [ :description ]

@@ -1,6 +1,13 @@
 ActiveAdmin.register Ecm::References::Category do
   menu :parent => Proc.new { I18n.t('ecm.references.active_admin.menu') }.call
 
+  permit_params :description,
+                :locale,
+                :markup_language,
+                :name,
+                :parent_id,
+                :slug
+
   # Nested set settings
   config.sort_order = 'lft_asc'
   sortable_tree_member_actions
@@ -31,7 +38,7 @@ ActiveAdmin.register Ecm::References::Category do
     column :reference_count
     column :created_at
     column :updated_at
-    default_actions
+    actions
   end # index
 
   show :title => :to_s do
@@ -61,7 +68,7 @@ ActiveAdmin.register Ecm::References::Category do
           image_tag(reference.preview_picture_image_url(:small_thumb)) unless reference.preview_picture_image_url(:small_thumb).nil?
         end
         column :name
-        column :published 
+        column :published
         column :created_at
         column :updated_at
         column do |child|

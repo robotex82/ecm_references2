@@ -11,13 +11,12 @@ FactoryGirl.define do
     end
 
     factory :ecm_references_category_with_descendants do
-      after_build do |category|
+      after(:build) do |category|
         category.children << FactoryGirl.build(:ecm_references_category, :parent => category)
         category.children.first.children << FactoryGirl.build(:ecm_references_category, :parent => category.children.first)
       end
 
-      after_create do |category|
-        # category.descendants.each { |descendant| descendant.save! }
+      after(:create) do |category|
         category.children.first.save!
         category.children.first.children.first.save!
       end

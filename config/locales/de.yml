@@ -43,7 +43,7 @@ de:
         previous_reference: "Vorherige Referenz"
       active_admin:
         menu: Referenzen
-  resources:
+  routes:
     ecm_references_categories: referenz-kategorien
     ecm_references_references: referenzen
 

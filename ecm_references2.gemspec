@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Ecm::References::VERSION
   s.authors     = ["Roberto Vasquez Angel"]
   s.email       = ["roberto@vasquez-angel.de"]
-  s.homepage    = "https://github.com/robotex82/ecm_references"
+  s.homepage    = "https://github.com/robotex82/ecm_references2"
   s.summary     = "References module for active admin."
   s.description = "References module for active admin."
 
@@ -28,24 +28,25 @@ Gem::Specification.new do |s|
 
   # Development Server
   s.add_development_dependency 'rails-dummy'
-  s.add_development_dependency 'jquery-rails'
-  s.add_development_dependency "thin"
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'thin'
+  s.add_development_dependency 'activeadmin', '1.0.0.pre2'
   s.add_development_dependency 'devise'
-  s.add_development_dependency 'activeadmin'
-  s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'ecm_lightbox2'
+  s.add_development_dependency 'route_translator'
   s.add_development_dependency 'less-rails'
-  s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'therubyracer'
   s.add_development_dependency 'twitter-bootstrap-rails'
+  s.add_development_dependency 'jquery-rails'
+  s.add_development_dependency 'rails-i18n'
+  s.add_development_dependency 'ecm_lightbox2'
 
   # Localization
-  s.add_development_dependency 'localeapp'
+  # s.add_development_dependency 'localeapp'
 
   # Tests
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-activemodel-mocks'
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'guard-rails'

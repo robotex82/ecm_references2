@@ -5,30 +5,29 @@ describe "ActiveRecord::Base models" do
     model = model_name.constantize
     describe model do
       it "should be an ActiveRecord::Base" do
-        ActiveRecord::Base.descendants.should include(model)
+        expect(ActiveRecord::Base.descendants).to include(model)
       end
 
       it "should be instanciable" do
         instance = model.new
-        instance.should be_a model
+        expect(instance).to be_a(model)
       end
 
       it "should be valid with correct attribute values" do
         instance = FactoryGirl.create(model.to_s.tableize.singularize.underscore.gsub( '/', '_'))
-        instance.should be_valid
+        expect(instance.valid?).to be_truthy
       end
 
       it "should not be valid with empty attributes" do
         instance = model.new
-        instance.should_not be_valid
+        expect(instance.valid?).to be_falsey
       end
 
       it "should save with valid attributes" do
         instance = FactoryGirl.create(model.to_s.tableize.singularize.underscore.gsub( '/', '_'))
-        instance.save.should be_true
-        instance.should be_persisted
+        expect(instance.save).to be_truthy
+        expect(instance).to be_persisted
       end
     end
   end
 end
-
