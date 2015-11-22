@@ -22,3 +22,11 @@ Add the routes:
 
     # config/routes.rb
     Ecm::References::Routing.routes(self)
+
+
+= Running tests
+
+    gem install bundler
+    bundle
+    cd spec/dummy && rake db:migrate RAILS_ENV=test && cd ../..
+    guard
