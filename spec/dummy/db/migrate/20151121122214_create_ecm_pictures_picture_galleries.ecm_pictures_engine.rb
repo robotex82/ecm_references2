@@ -7,14 +7,14 @@ class CreateEcmPicturesPictureGalleries < ActiveRecord::Migration
       t.boolean :link_images
 
       # associations
-      t.integer :pictures_count, :default => 0, :null => false
-      
+      t.integer :pictures_count, default: 0, null: false
+
       # acts as list
       t.integer :position
 
       # acts as markup
       t.string :markup_language
-      
+
       # friendly id
       t.string :slug
 

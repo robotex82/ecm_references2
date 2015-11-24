@@ -9,4 +9,3 @@ module Ecm::References
     end
   end
 end
-

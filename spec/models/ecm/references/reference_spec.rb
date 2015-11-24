@@ -7,7 +7,7 @@ module Ecm::References
     end # describe 'associations'
 
     describe 'friendly id' do
-      subject { FactoryGirl.create(:ecm_references_reference, :name => 'A reference with a friendly id!') }
+      subject { FactoryGirl.create(:ecm_references_reference, name: 'A reference with a friendly id!') }
 
       it 'should be generate from its name' do
         subject.to_param.should eq('a-reference-with-a-friendly-id')
@@ -18,7 +18,7 @@ module Ecm::References
       subject do
         FactoryGirl.build(
           :ecm_references_reference,
-          :description => 'h1. This is the description'
+          description: 'h1. This is the description'
         )
       end # subject
 
@@ -29,7 +29,7 @@ module Ecm::References
 
     describe 'public methods' do
       describe '#preview_picture' do
-        subject { FactoryGirl.create(:ecm_references_reference_with_pictures)  }
+        subject { FactoryGirl.create(:ecm_references_reference_with_pictures) }
 
         it 'should return the first picture' do
           subject.preview_picture.should eq(subject.pictures.first)
@@ -38,7 +38,7 @@ module Ecm::References
 
       describe '#preview_picture_image_url' do
         describe 'for a reference without attached picture' do
-          subject { FactoryGirl.create(:ecm_references_reference)  }
+          subject { FactoryGirl.create(:ecm_references_reference) }
 
           it 'should return nil' do
             subject.preview_picture_image_url.should eq(nil)
@@ -47,7 +47,7 @@ module Ecm::References
       end # describe '#preview_picture_image_url'
 
       describe '#to_s' do
-        subject { FactoryGirl.create(:ecm_references_reference, :name => 'Example reference')  }
+        subject { FactoryGirl.create(:ecm_references_reference, name: 'Example reference') }
 
         it 'should return a human readable label' do
           subject.to_s.should eq('Example reference')
@@ -108,4 +108,3 @@ module Ecm::References
     end # describe 'validations'
   end # describe Reference
 end # module Ecm::References
-

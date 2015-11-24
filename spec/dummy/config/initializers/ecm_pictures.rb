@@ -2,7 +2,7 @@ Ecm::Pictures.configure do |config|
   # Accepted markup languages
   #
   # default: config.markup_languages = %w[ textile ]
-  config.markup_languages = %w[ textile ]
+  config.markup_languages = %w( textile )
 
   # Default markup language
   #
@@ -20,9 +20,9 @@ Ecm::Pictures.configure do |config|
   #              }
   config.paperclip_options = {
     styles: {
-      small_thumb:   "80x60",
-      medium_thumb:  "160x120",
-      default_thumb: "260x180"
+      small_thumb:   '80x60',
+      medium_thumb:  '160x120',
+      default_thumb: '260x180'
     }
   }
 
@@ -38,4 +38,3 @@ Ecm::Pictures.configure do |config|
   #
   config.prevent_textile_rendering_in_html = true
 end
-

@@ -7,16 +7,16 @@ class CreateEcmPicturesPictures < ActiveRecord::Migration
 
       # associations
       t.references :picture_gallery
-      
+
       # acts as list
       t.integer :position
 
       # acts as markup
       t.string :markup_language
-      
+
       # friendly id
       t.string :slug
-      
+
       # paperclip
       # t.attachment :image
       t.string :image_file_name

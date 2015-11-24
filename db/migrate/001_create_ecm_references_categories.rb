@@ -22,4 +22,3 @@ class CreateEcmReferencesCategories < ActiveRecord::Migration
     add_index :ecm_references_categories, :parent_id
   end
 end
-

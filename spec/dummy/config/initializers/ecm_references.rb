@@ -2,7 +2,7 @@ Ecm::References.configure do |config|
   # Accepted markup languages
   #
   # default: config.markup_languages = %w[ textile ]
-  config.markup_languages = %w[ textile ]
+  config.markup_languages = %w( textile )
 
   # Default markup language
   #
@@ -29,7 +29,7 @@ Ecm::References.configure do |config|
   #
   # Default: config.references_table_classes = 'table table-striped table-hover'
   #
-  config.references_table_classes = 'table table-striped table-hover' 
+  config.references_table_classes = 'table table-striped table-hover'
 
   # Set the base controller
   #
@@ -52,6 +52,5 @@ Ecm::References.configure do |config|
   # Number of lines to render in news preview
   #
   # default: config.news_item_preview_lines = 3
-  configreference_preview_lines = 3
+  config.reference_preview_lines = 3
 end
-

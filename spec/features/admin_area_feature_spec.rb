@@ -12,8 +12,8 @@ feature 'admin area' do
     context 'with correct authentication' do
       background do
         @admin_user = FactoryGirl.create(:admin_user)
-        fill_in 'admin_user[email]',    :with => @admin_user.email
-        fill_in 'admin_user[password]', :with => @admin_user.password
+        fill_in 'admin_user[email]',    with: @admin_user.email
+        fill_in 'admin_user[password]', with: @admin_user.password
         find(:xpath, '//input[@type="submit"]').click
       end # background
 
@@ -24,8 +24,8 @@ feature 'admin area' do
 
     context 'with wrong authentication' do
       background do
-        fill_in 'admin_user[email]',    :with => 'chuck@example.com'
-        fill_in 'admin_user[password]', :with => 'password'
+        fill_in 'admin_user[email]',    with: 'chuck@example.com'
+        fill_in 'admin_user[password]', with: 'password'
         find(:xpath, '//input[@type="submit"]').click
       end # background
 
@@ -37,7 +37,7 @@ feature 'admin area' do
 
   describe 'logout' do
     background do
-    I18n.locale = :de
+      I18n.locale = :de
       @admin_user = FactoryGirl.create(:admin_user)
       sign_in_with(@admin_user.email, @admin_user.password)
       click_link('Abmelden')
@@ -48,4 +48,3 @@ feature 'admin area' do
     end
   end # describe 'logout'
 end # feature
-

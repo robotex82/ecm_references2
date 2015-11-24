@@ -17,31 +17,31 @@ module Ecm::References
     # callbacks
     after_initialize :set_defaults
     before_validation :set_locale_from_parent
-    before_save :update_locale_on_children!, :if => Proc.new { |category| category.locale_changed? }
+    before_save :update_locale_on_children!, if: proc { |category| category.locale_changed? }
 
     # default scope
     default_scope { order(:lft) }
 
     # friendly id support
     extend FriendlyId
-    friendly_id :name, :use => [:slugged, :finders]
+    friendly_id :name, use: [:slugged, :finders]
 
     # markup support
-    acts_as_markup :language => :variable, :columns => [ :description ]
+    acts_as_markup language: :variable, columns: [:description]
 
     # nested set support
     acts_as_nested_set
 
     # validations
-    validates :locale, :inclusion => I18n.available_locales.map(&:to_s), :allow_blank => true
-    validate :equality_of_locale_and_parent_locale, :if => Proc.new { |category| category.parent.respond_to?(:locale) }
-    validates :markup_language, :presence => true,
-                                :inclusion => Ecm::References::Configuration.markup_languages.map(&:to_s)
-    validates :name, :presence => true,
-                     :uniqueness => { :scope => [ :parent_id ] }
+    validates :locale, inclusion: I18n.available_locales.map(&:to_s), allow_blank: true
+    validate :equality_of_locale_and_parent_locale, if: proc { |category| category.parent.respond_to?(:locale) }
+    validates :markup_language, presence: true,
+                                inclusion: Ecm::References::Configuration.markup_languages.map(&:to_s)
+    validates :name, presence: true,
+                     uniqueness: { scope: [:parent_id] }
 
     def self.localized
-      where(:locale => I18n.locale)
+      where(locale: I18n.locale)
     end
 
     def self.with_public_visibility
@@ -94,10 +94,9 @@ module Ecm::References
 
     def update_locale_on_children!
       children.each do |child|
-        child.locale = self.locale
+        child.locale = locale
         child.save!
       end
     end # def
   end # class Category < ActiveRecord::Base
 end # module Ecm::References
-

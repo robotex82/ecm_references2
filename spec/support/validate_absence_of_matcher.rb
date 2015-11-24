@@ -3,7 +3,6 @@ require 'shoulda/matchers/active_model/validation_matcher.rb'
 module Shoulda # :nodoc:
   module Matchers
     module ActiveModel # :nodoc:
-
       # Ensures that the model is not valid if the given attribute is present.
       #
       # Options:
@@ -21,7 +20,6 @@ module Shoulda # :nodoc:
       end
 
       class ValidateAbsenceOfMatcher < ValidationMatcher # :nodoc:
-
         def with_message(message)
           @expected_message = message if message
           self
@@ -41,7 +39,7 @@ module Shoulda # :nodoc:
 
         def non_blank_value
           if collection?
-            [ :foo ]
+            [:foo]
           else
             'foo'
           end

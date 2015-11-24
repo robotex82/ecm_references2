@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'ecm/references/categories/index.html.haml' do
-  def add_controller_helpers *controllers
+  def add_controller_helpers(*controllers)
     controllers.each { |c| view.singleton_class.class_eval { include c.new._helpers } }
   end
 
@@ -23,10 +23,9 @@ describe 'ecm/references/categories/index.html.haml' do
       render
     end # before
 
-    it "displays all the reference categories" do
+    it 'displays all the reference categories' do
       rendered.should include('Foo')
       rendered.should include('Bar')
     end # it
   end
 end
-

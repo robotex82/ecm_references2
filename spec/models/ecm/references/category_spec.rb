@@ -4,7 +4,7 @@ module Ecm::References
   describe Category do
     it { should respond_to :human }
     before do
-      I18n.available_locales = [ :en, :de ]
+      I18n.available_locales = [:en, :de]
     end # before
 
     describe 'associations' do
@@ -15,7 +15,7 @@ module Ecm::References
       describe 'inheritance of locale' do
         describe 'for a new child category' do
           subject do
-            FactoryGirl.build(:ecm_references_category_with_parent, :locale => nil)
+            FactoryGirl.build(:ecm_references_category_with_parent, locale: nil)
           end
           it 'should have the same locale as the parent after save' do
             subject.save
@@ -25,7 +25,7 @@ module Ecm::References
 
         describe 'for a category with descendants' do
           subject do
-            FactoryGirl.create(:ecm_references_category_with_descendants, :locale => 'en')
+            FactoryGirl.create(:ecm_references_category_with_descendants, locale: 'en')
           end
           it 'should set the locale on the descendants after save' do
             subject.locale = 'de'
@@ -49,7 +49,7 @@ module Ecm::References
     end # describe 'nested set'
 
     describe 'friendly id' do
-      subject { FactoryGirl.create(:ecm_references_category, :name => 'A category with a friendly id!') }
+      subject { FactoryGirl.create(:ecm_references_category, name: 'A category with a friendly id!') }
 
       it 'should be generate from its name' do
         subject.to_param.should eq('a-category-with-a-friendly-id')
@@ -60,7 +60,7 @@ module Ecm::References
       subject do
         FactoryGirl.build(
           :ecm_references_category,
-          :description => 'h1. This is the description'
+          description: 'h1. This is the description'
         )
       end # subject
 
@@ -71,7 +71,7 @@ module Ecm::References
 
     describe 'public methods' do
       describe '#to_s' do
-        subject { FactoryGirl.create(:ecm_references_category, :name => 'Example category')  }
+        subject { FactoryGirl.create(:ecm_references_category, name: 'Example category') }
 
         it 'should return a human readable label' do
           subject.to_s.should eq('Example category')
@@ -83,9 +83,9 @@ module Ecm::References
       describe 'publicly_visible' do
         before do
           I18n.locale = :en
-          @category_with_actual_locale = FactoryGirl.create(:ecm_references_category, :locale => 'en')
-          @category_without_locale = FactoryGirl.create(:ecm_references_category, :parent => @category_with_actual_locale, :locale => nil)
-          @category_with_different_locale = FactoryGirl.create(:ecm_references_category, :locale => 'de')
+          @category_with_actual_locale = FactoryGirl.create(:ecm_references_category, locale: 'en')
+          @category_without_locale = FactoryGirl.create(:ecm_references_category, parent: @category_with_actual_locale, locale: nil)
+          @category_with_different_locale = FactoryGirl.create(:ecm_references_category, locale: 'de')
         end # before
 
         it 'should include categories with the actual locale' do
@@ -109,4 +109,3 @@ module Ecm::References
     end # describe 'validations'
   end # describe Category
 end # module Ecm::References
-

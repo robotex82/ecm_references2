@@ -23,4 +23,3 @@ class CreateEcmReferencesReferences < ActiveRecord::Migration
     end
   end
 end
-
