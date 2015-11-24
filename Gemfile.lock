@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ecm_references2 (0.0.1.pre)
+    ecm_references2 (1.0.0)
       active_admin-acts_as_list
       active_admin-awesome_nested_set
       acts_as_list
