@@ -36,11 +36,19 @@ en:
   ecm:
     references:
       actions:
+        back: back
         back_to_category: "back to %{category}"
         back_to_category_index: "back to all categories"
         more: more
+        next_reference: "next reference"
+        previous_reference: "previous referencez"
       active_admin:
         menu: references
+      category:  
+        actions:
+          back_to_index: 'Back to categories'
+        messages:
+          no_references_available: "No references avaiable"
   routes:
     ecm_references_categories: reference-categories
     ecm_references_references: references

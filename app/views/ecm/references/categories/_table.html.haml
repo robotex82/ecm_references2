@@ -1,0 +1,4 @@
+.table-responsive
+  %table{ class: Ecm::References::Configuration.categories_table_classes }
+    %tbody
+      = render partial: 'ecm/references/categories/category_in_table', collection: categories, as: :category

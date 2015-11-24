@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_dependency "awesome_nested_set-tools"
   s.add_dependency "ecm_pictures2"
   s.add_dependency "friendly_id"
+  s.add_dependency "haml-rails"
+  s.add_dependency 'kaminari'
+  s.add_dependency 'bootstrap-kaminari-views'
 
   # Development Server
   s.add_development_dependency 'rails-dummy'

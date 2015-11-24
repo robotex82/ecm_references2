@@ -36,6 +36,7 @@ de:
   ecm:
     references:
       actions:
+        back: Zurück
         back_to_category: "Zurück zu %{category}"
         back_to_category_index: "Alle Referenzkategorien"
         more: mehr
@@ -43,6 +44,11 @@ de:
         previous_reference: "Vorherige Referenz"
       active_admin:
         menu: Referenzen
+      category:
+        actions:
+          back_to_index: 'Zurück zu Kategorien'
+        messages:
+          no_references_available: "Keine Referenzen in dieser Kategorie vorhanden"
   routes:
     ecm_references_categories: referenz-kategorien
     ecm_references_references: referenzen

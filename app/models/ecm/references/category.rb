@@ -3,7 +3,8 @@ module Ecm::References
     self.table_name = 'ecm_references_categories'
 
     # associations
-    has_many :references, :foreign_key => :ecm_categories_category_id
+    has_many :references, foreign_key: :ecm_categories_category_id,
+                          dependent:   :destroy
 
     # attributes
     # attr_accessible :description,
@@ -47,17 +48,33 @@ module Ecm::References
       localized
     end
 
+    def human
+      name
+    end
+
     def locale=(locale)
       write_attribute(:locale, locale.to_s) if locale.respond_to?(:to_s)
     end
 
-    def reference_count
+    def locale_label(view)
+      view.content_tag(:span, locale, class: 'label label-default')
+    end
+
+    def references_count
       references.count
+    end
+
+    def references_count_label(view)
+      view.content_tag(:span, references_count, class: 'badge')
     end
 
     def to_s
       name
-    end # def
+    end
+
+    def tree_name
+      name
+    end
 
     private
 

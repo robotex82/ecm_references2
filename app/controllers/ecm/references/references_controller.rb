@@ -1,12 +1,12 @@
 module Ecm::References
-  class ReferencesController < ApplicationController
+  class ReferencesController < Configuration.base_controller.constantize
     def index
-      @references = Reference.with_public_visibility.all
-    end # def
+      @references = Reference.with_public_visibility.page(params[:page]).per(5)
+    end
 
     def show
       @reference = Reference.with_public_visibility.find(params[:id])
-    end # def
-  end # class ReferencesController < ApplicationController
-end # module Ecm::References
+    end
+  end
+end
 

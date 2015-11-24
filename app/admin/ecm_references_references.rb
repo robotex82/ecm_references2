@@ -7,7 +7,13 @@ ActiveAdmin.register Ecm::References::Reference do
                 :description,
                 :markup_language,
                 :name,
-                :pictures_attributes
+                :published,
+                pictures_attributes: [
+                  :description,
+                  :image,
+                  :markup_language,
+                  :name
+                ]
 
   # List settings
   sortable_member_actions

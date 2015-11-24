@@ -1,0 +1,13 @@
+%h1.reference-category-name= category.name
+
+- if category.description.present?
+  .reference-category-description
+    %p= category.description
+
+.references.item-list
+  - if category.references.published.any?
+    = render partial: 'ecm/references/references/references_in_category', locals: { references: category.references.published }
+  - else
+    %p= t('ecm.references.category.messages.no_references_available')
+
+= render partial: 'table', locals: { categories: category.descendants }    

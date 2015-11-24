@@ -1,0 +1,7 @@
+.reference.show
+  %h1= reference.name
+
+  - if reference.preview_picture.present?
+    %img.img-responsive.bottom-margin-2{ src: reference.preview_picture.image.url, alt: reference.preview_picture.description, title: reference.preview_picture.description }
+
+  .item-body= mu(reference, :description)

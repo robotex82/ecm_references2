@@ -1,0 +1,9 @@
+- content_for :meta_description, @category.name
+- content_for :title, @category.name
+= render @category
+
+.well.page-actions
+  - if @category.root?
+    = link_to(t('ecm.references.category.actions.back_to_index'), ecm_references_categories_path, class: 'btn btn-default') if respond_to?(:ecm_references_categories_path)
+  - else
+    = link_to(t('ecm.references.actions.back'), @category.parent, class: 'btn btn-default')

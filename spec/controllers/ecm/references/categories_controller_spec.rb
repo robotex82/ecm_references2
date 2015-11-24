@@ -11,7 +11,7 @@ module Ecm::References
 
       it "assigns all visible reference categories to @reference_categories" do
         get :index, :locale => :en
-        assigns(:reference_categories).should eq(@visible_reference_categories)
+        assigns(:categories).should eq(@visible_reference_categories)
       end # if
     end # describe "GET index"
 
@@ -23,7 +23,7 @@ module Ecm::References
 
       it "assigns the correct reference category to @reference_category" do
         get :show, :id => @reference_category, :locale => :en
-        assigns(:reference_category).should eq(@reference_category)
+        assigns(:category).should eq(@reference_category)
       end # if
     end # describe "GET show"
   end # describe CategoriesController

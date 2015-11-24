@@ -1,11 +1,11 @@
 module Ecm::References
-  class CategoriesController < ApplicationController
+  class CategoriesController < Configuration.base_controller.constantize
     def index
-      @reference_categories = Category.with_public_visibility.all
-    end # def
+      @categories = Category.with_public_visibility.page(params[:page]).per(5)
+    end
 
     def show
-      @reference_category = Category.with_public_visibility.find(params[:id])
-    end # def
-  end # class CategoriesController < ApplicationController
-end # module Ecm::References
+      @category = Category.with_public_visibility.find(params[:id])
+    end
+  end
+end

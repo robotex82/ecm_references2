@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ecm/references/categories/index.html.erb' do
+describe 'ecm/references/categories/index.html.haml' do
   def add_controller_helpers *controllers
     controllers.each { |c| view.singleton_class.class_eval { include c.new._helpers } }
   end
@@ -11,10 +11,15 @@ describe 'ecm/references/categories/index.html.erb' do
 
   describe 'with 2 reference categories' do
     before do
-      assign(:reference_categories, [
-        stub_model(Ecm::References::Category, :name => 'Foo'),
-        stub_model(Ecm::References::Category, :name => 'Bar')
-      ])
+      categories = [
+        build(:ecm_references_category, name: 'Foo'),
+        build(:ecm_references_category, name: 'Bar')
+      ]
+      allow(categories).to receive(:total_pages) { 1 }
+      allow(categories.first).to receive(:depth) { 1 }
+      allow(categories.last).to receive(:depth) { 1 }
+
+      assign(:categories, categories)
       render
     end # before
 
@@ -22,6 +27,6 @@ describe 'ecm/references/categories/index.html.erb' do
       rendered.should include('Foo')
       rendered.should include('Bar')
     end # it
-  end # describe 'with 2 reference categories'
-end # describe 'ecm/references/categories/index.html.erb'
+  end
+end
 

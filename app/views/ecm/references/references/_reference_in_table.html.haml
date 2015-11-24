@@ -1,0 +1,3 @@
+%tr{ class: reference.class.name.underscore.gsub('/', ' '), id: "#{reference.class.name.underscore.gsub('/', '-')}-#{reference.to_param}" }
+  %td{ title: reference.description }= link_to reference.name, reference
+  %td= link_to reference.category.human, reference.category

@@ -1,0 +1,6 @@
+- content_for :meta_description, @reference.name
+- content_for :title, @reference.name
+= render @reference
+
+.page-action.well
+  .btn-group{ role: 'group' }= link_to t('ecm.references.actions.back'), :back, class: 'btn btn-default'

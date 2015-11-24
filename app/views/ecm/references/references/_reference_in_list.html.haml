@@ -1,0 +1,11 @@
+%div{ class: Ecm::References::Configuration.reference_preview_div_classes, id: "#{reference.class.name.underscore.gsub('/', '-')}-#{reference.to_param}" }
+  .media-left
+    - if reference.preview_picture.present?
+      = link_to(reference, class: Ecm::References::Configuration.reference_preview_thumbnail_link_classes) do
+        %img.media-object.thumbnail.img-responsive{ src: reference.preview_picture.image.url(:default_thumb) }
+    - else
+      %div{ class: Ecm::References::Configuration.reference_preview_thumbnail_link_classes }
+  .media-body
+    %h3.media-heading= reference.name
+    %div{ class: "news-body truncate lines-#{Ecm::References::Configuration.reference_preview_lines} bottom-margin-1" }= mu reference, :description
+    .object-actions= link_to(t('ecm.references.actions.more'), reference, class: 'btn btn-primary')

@@ -1,8 +1,8 @@
 Ecm::References.configure do |config|
   # Accepted markup languages
   #
-  # default: config.markup_languages = %w[ markdown rdoc textile ]
-  config.markup_languages = %w[ markdown rdoc textile ]
+  # default: config.markup_languages = %w[ textile ]
+  config.markup_languages = %w[ textile ]
 
   # Default markup language
   #
@@ -18,5 +18,40 @@ Ecm::References.configure do |config|
   #
   # default: config.news_preview_length = 250
   config.reference_preview_length = 250
+
+  # Set the css classes for the categories table
+  #
+  # Default: config.categories_table_classes = 'table table-striped table-hover'
+  #
+  config.categories_table_classes = 'table table-striped table-hover'
+
+  # Set the css classes for the downloads table
+  #
+  # Default: config.downloads_table_classes = 'table table-striped table-hover'
+  #
+  config.references_table_classes = 'table table-striped table-hover' 
+
+  # Set the base controller for the contact form
+  #
+  # Default: config.base_controller = 'ApplicationController'
+  #
+  config.base_controller = 'ApplicationController'
+
+  # CSS Classes for the preview container div
+  #
+  # Default: config.reference_preview_div_classes = 'media ecm-reference bottom-margin-2'
+  #
+  config.reference_preview_div_classes = 'media ecm-reference bottom-margin-2'
+
+  # CSS Classes for the preview thumbnail link
+  #
+  # Default: config.reference_preview_thumbnail_link_classes = 'col-lg-4'
+  #
+  config.reference_preview_thumbnail_link_classes = 'col-lg-4'
+
+  # Number of lines to render in news preview
+  #
+  # default: config.news_item_preview_lines = 3
+  configreference_preview_lines = 3
 end
 

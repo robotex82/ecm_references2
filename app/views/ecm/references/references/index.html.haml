@@ -1,0 +1,11 @@
+- content_for :meta_description, Ecm::References::Reference.model_name.human(count: :other)
+- content_for :title, Ecm::References::Reference.model_name.human(count: :other)
+
+%h1= Ecm::References::Reference.model_name.human(count: :other)
+
+= render(:partial => 'reference_in_list', :collection => @references, :as => :reference)
+
+= paginate @references, :theme => 'twitter-bootstrap'
+
+%div.well.page-actions
+  = link_to(t('ecm.references.views.actions.back'), root_path, class: 'btn btn-default')

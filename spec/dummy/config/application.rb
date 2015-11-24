@@ -12,6 +12,7 @@ Bundler.require(*Rails.groups)
 require 'devise'
 require 'ecm_pictures2'
 require 'route_translator'
+require 'haml-rails'
 require "ecm_references2"
 
 module Dummy

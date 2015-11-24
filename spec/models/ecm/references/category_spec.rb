@@ -2,6 +2,7 @@ require 'rails_helper'
 
 module Ecm::References
   describe Category do
+    it { should respond_to :human }
     before do
       I18n.available_locales = [ :en, :de ]
     end # before
