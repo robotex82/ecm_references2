@@ -25,13 +25,13 @@ Ecm::References.configure do |config|
   #
   config.categories_table_classes = 'table table-striped table-hover'
 
-  # Set the css classes for the downloads table
+  # Set the css classes for the references table
   #
-  # Default: config.downloads_table_classes = 'table table-striped table-hover'
+  # Default: config.references_table_classes = 'table table-striped table-hover'
   #
   config.references_table_classes = 'table table-striped table-hover' 
 
-  # Set the base controller for the contact form
+  # Set the base controller
   #
   # Default: config.base_controller = 'ApplicationController'
   #
