@@ -1,1 +1,1 @@
-rvm --create use @default
+rvm --create use default@default

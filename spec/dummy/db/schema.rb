@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_151_121_122_711) do
+ActiveRecord::Schema.define(version: 20_151_208_103_749) do
   create_table 'active_admin_comments', force: :cascade do |t|
     t.string 'namespace'
     t.text 'body'
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20_151_121_122_711) do
     t.string 'markup_language'
     t.datetime 'published_at'
     t.string 'slug'
-    t.integer 'ecm_categories_category_id'
+    t.integer 'ecm_references_category_id'
     t.datetime 'created_at'
     t.datetime 'updated_at'
   end

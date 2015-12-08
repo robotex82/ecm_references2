@@ -3,7 +3,7 @@ ActiveAdmin.register Ecm::References::Reference do
 
   permit_params :attached_pictures_attributes,
                 :category,
-                :ecm_categories_category_id,
+                :ecm_references_category_id,
                 :description,
                 :markup_language,
                 :name,

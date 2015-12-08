@@ -9,10 +9,15 @@ require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
+require 'active_admin-acts_as_list'
+require 'active_admin-awesome_nested_set'
+require 'activeadmin'
 require 'devise'
+
 require 'ecm_pictures2'
-require 'route_translator'
 require 'haml-rails'
+require 'route_translator'
+
 require 'ecm_references2'
 
 module Dummy

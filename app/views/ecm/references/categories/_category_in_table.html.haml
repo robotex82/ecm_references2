@@ -3,4 +3,4 @@
     = link_to(category.tree_name, category, class: "left-padding-#{category.depth * 3}", title: category.description)
     = category.locale_label(self)
   %td.text-right
-    = category.references_count_label(self)
+    = category.public_references_count_label(self)

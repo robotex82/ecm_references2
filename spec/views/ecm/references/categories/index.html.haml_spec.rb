@@ -9,23 +9,13 @@ describe 'ecm/references/categories/index.html.haml' do
     add_controller_helpers ApplicationController
   end
 
-  describe 'with 2 reference categories' do
+  describe 'categories rendering' do
     before do
-      categories = [
-        build(:ecm_references_category, name: 'Foo'),
-        build(:ecm_references_category, name: 'Bar')
-      ]
-      allow(categories).to receive(:total_pages) { 1 }
-      allow(categories.first).to receive(:depth) { 1 }
-      allow(categories.last).to receive(:depth) { 1 }
-
-      assign(:categories, categories)
+      @categories = FactoryGirl.create_list(:ecm_references_category, 3)
+      assign(:categories, Kaminari.paginate_array(@categories).page(1))
       render
-    end # before
+    end
 
-    it 'displays all the reference categories' do
-      rendered.should include('Foo')
-      rendered.should include('Bar')
-    end # it
+    it { @categories.each { |c| expect(rendered).to include(c.name) } }
   end
 end

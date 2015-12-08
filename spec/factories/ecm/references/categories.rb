@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :ecm_references_category, class: Ecm::References::Category do
-    locale 'en'
+    locale I18n.locale
     sequence(:name) { |i| "Reference category ##{i}" }
 
     factory :ecm_references_category_with_parent do

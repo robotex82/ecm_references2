@@ -20,6 +20,7 @@ de:
         created_at: "Erstellt am"
         description: Beschreibung
         details: Details
+        ecm_references_category: Kategorie
         markup_language: "Markup Sprache"
         name: Name
         preview_picture: Vorschaubild

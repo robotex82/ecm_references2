@@ -20,6 +20,7 @@ en:
         created_at: "created at"
         description: description
         details: details
+        ecm_references_category: category
         markup_language: "markup language"
         name: name
         preview_picture: preview picture

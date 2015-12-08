@@ -32,7 +32,7 @@ feature 'Ecm::References::Reference admin' do
   end
 
   def fill_new_form
-    select "• #{@reference_category}", from: 'ecm_references_reference[ecm_categories_category_id]'
+    select "• #{@reference_category}", from: 'ecm_references_reference[ecm_references_category_id]'
     fill_in 'ecm_references_reference[name]', with: 'Example reference'
   end
 

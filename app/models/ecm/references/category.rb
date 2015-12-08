@@ -3,16 +3,8 @@ module Ecm::References
     self.table_name = 'ecm_references_categories'
 
     # associations
-    has_many :references, foreign_key: :ecm_categories_category_id,
+    has_many :references, foreign_key: :ecm_references_category_id,
                           dependent:   :destroy
-
-    # attributes
-    # attr_accessible :description,
-    #                 :locale,
-    #                 :markup_language,
-    #                 :name,
-    #                 :parent_id,
-    #                 :slug
 
     # callbacks
     after_initialize :set_defaults
@@ -64,8 +56,12 @@ module Ecm::References
       references.count
     end
 
-    def references_count_label(view)
-      view.content_tag(:span, references_count, class: 'badge')
+    def public_references_count
+      references.with_public_visibility.count
+    end
+
+    def public_references_count_label(view)
+      view.content_tag(:span, public_references_count, class: 'badge')
     end
 
     def to_s
@@ -80,23 +76,23 @@ module Ecm::References
 
     def equality_of_locale_and_parent_locale
       locale == parent.locale
-    end # def
+    end
 
     def set_defaults
       if self.new_record?
         self.markup_language ||= Ecm::References::Configuration.default_markup_language
       end
-    end # def
+    end
 
     def set_locale_from_parent
       self.locale = parent.locale if parent.respond_to?(:locale)
-    end # def
+    end
 
     def update_locale_on_children!
       children.each do |child|
         child.locale = locale
         child.save!
       end
-    end # def
-  end # class Category < ActiveRecord::Base
-end # module Ecm::References
+    end
+  end
+end

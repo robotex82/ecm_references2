@@ -18,7 +18,7 @@ class CreateEcmReferencesReferences < ActiveRecord::Migration
       t.string :slug
 
       # references
-      t.references :ecm_categories_category
+      t.references :ecm_references_category
 
       t.timestamps
     end

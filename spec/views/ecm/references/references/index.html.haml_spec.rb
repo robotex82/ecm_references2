@@ -9,22 +9,13 @@ describe 'ecm/references/references/index.html.haml' do
     add_controller_helpers ApplicationController
   end
 
-  describe 'with 2 references' do
+  describe 'references rendering' do
     before do
-      references = [
-        build(:ecm_references_reference, name: 'Foo'),
-        build(:ecm_references_reference, name: 'Bar')
-      ]
-      allow(references).to receive(:total_pages) { 1 }
-      allow(references).to receive(:current_page) { 1 }
-      allow(references).to receive(:limit_value) { 1 }
-      assign(:references, references)
+      @references = FactoryGirl.create_list(:ecm_references_reference, 3)
+      assign(:references, Kaminari.paginate_array(@references).page(1))
       render
     end
 
-    it 'displays all the references' do
-      rendered.should include('Foo')
-      rendered.should include('Bar')
-    end
+    it { @references.each { |r| expect(rendered).to include(r.name) } }
   end
 end
