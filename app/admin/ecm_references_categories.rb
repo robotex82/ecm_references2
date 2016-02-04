@@ -89,4 +89,4 @@ ActiveAdmin.register Ecm::References::Category do
       row :updated_at
     end
   end # sidebar
-end # ActiveAdmin.register Ecm::References::Category
+end if Gem::Specification.find_all_by_name('activeadmin').any?

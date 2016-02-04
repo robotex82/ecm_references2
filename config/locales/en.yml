@@ -11,7 +11,7 @@ en:
         markup_language: "markup language"
         name: name
         parent: "parent category"
-        reference_count: references
+        references_count: references
         references: references
         slug: "friendly id"
         updated_at: "updated at"

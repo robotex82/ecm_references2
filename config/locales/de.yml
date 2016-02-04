@@ -11,7 +11,7 @@ de:
         markup_language: "Markup Sprache"
         name: Name
         parent: "Übergeordnete Kategorie"
-        reference_count: Referenzen
+        references_count: Referenzen
         references: Referenzen
         slug: "Freundliche ID"
         updated_at: "Aktualisiert am"
